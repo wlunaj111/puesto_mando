@@ -1,0 +1,16 @@
+Ejecutar para poder activar elentorno virtual en windows   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+python -m virtualenv venv   creando el entrono virtual
+pip install django
+pip install djangorestframework
+
+django-admin startproject loteria . //Para iniciar un nuevo proyecto, el punto se pone para q lo haga en el directorio actual
+
+#creando una aplicación
+python manage.py startapp api
+
+pip install dj-database-url psycopg2-binary
+pip install whitenoise[brotli] #para que pueda correr el servicio estático, la interfaz, esto utiliza bootrap
+
+#para generar el archivo requirements
+pip freeze > requirements.txt
+pip install gunicorn   #para servir sitios estáticos
