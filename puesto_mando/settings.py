@@ -130,7 +130,7 @@ CORS_ALLOWED_ORIGINS = [
     # "https://example.com",
      #"https://sub.example.com",
     "http://localhost:4200",
-    'https://pmando.onrender.com'
+    'https://potafolio.netlify.app/'
     # "http://127.0.0.1:9000",
 ]
 
