@@ -136,7 +136,7 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:4200",
-    'https://pmando.onrender.com'
+    'https://potafolio.netlify.app/'
 ]
 
 
