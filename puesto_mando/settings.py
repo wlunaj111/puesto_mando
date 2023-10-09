@@ -28,6 +28,8 @@ SECRET_KEY = 'django-insecure-gh9g1qog7&=gto%8e-fzuc+6@3tsneecrrx9os1v(qx+-a9w1o
 DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
+# CORS_ORIGIN_ALLOW_ALL = True
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
@@ -38,6 +40,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,8 +52,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -85,7 +90,7 @@ WSGI_APPLICATION = 'puesto_mando.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:root@localhost:5432/pmando',
+        default='postgresql://postgres:root@localhost:5433/pmando',
         conn_max_age=600
     )
 }
@@ -120,6 +125,21 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+CORS_ALLOWED_ORIGINS = [
+    # "https://example.com",
+     #"https://sub.example.com",
+    "http://localhost:4200",
+    'https://pmando.onrender.com'
+    # "http://127.0.0.1:9000",
+]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:4200",
+    'https://pmando.onrender.com'
+]
+
+
 
 
 # Static files (CSS, JavaScript, Images)
